@@ -1,0 +1,78 @@
+# El Fuego Academy PH — Website + El Fuego AI (v1.0, all-in-one)
+
+Online Spanish school · Cebu, Philippines · DTI Reg. No. 7985606 (National)
+Founder: David Lloyd Villar ("Maestro Draco")
+
+Your full site, with **El Fuego AI** — a premium bilingual concierge — now baked
+directly into every page. There are **no extra files or folders to load**: each
+HTML page is completely self-contained, so it works whether you open it on its
+own, host it on Netlify, or paste it into GoHighLevel.
+
+------------------------------------------------------------
+## What's inside
+------------------------------------------------------------
+
+```
+el-fuego-academy-ph/
+├── index.html                  → Home (El Fuego AI built in)
+├── payment.html                → Reservation / payment (program-aware) + AI
+├── hire-talent.html            → Hire bilingual talent + AI
+├── corporate-training.html     → Corporate training + AI
+├── translation-services.html   → Translation services + AI
+├── login.html                  → Student portal — login
+├── dashboard.html              → Student portal — dashboard
+├── preview-el-fuego-ai.html    → Open this first to see the assistant
+└── assets/                     → source images (each page embeds its own copies)
+```
+
+Every page now contains one `EL FUEGO AI` block just before `</body>` with all the
+styles, logic and knowledge base inlined. Nothing else is required.
+
+------------------------------------------------------------
+## See it now
+------------------------------------------------------------
+
+Double-click **preview-el-fuego-ai.html** (or index.html). The El Fuego AI
+button appears bottom-right. It works fully offline — the assistant answers from
+its built-in knowledge base and offers a Messenger hand-off for any form.
+
+> If the button still doesn't show when opening from your disk, it's usually the
+> browser blocking local file scripts. Hosting the page (Netlify/GHL) fixes that
+> instantly — that's the real environment it's built for.
+
+------------------------------------------------------------
+## Deploy
+------------------------------------------------------------
+
+- Netlify: https://app.netlify.com -> "Add new site" -> "Deploy manually" ->
+  drag the whole el-fuego-academy-ph folder. index.html loads at the root.
+- GoHighLevel: because each page is self-contained, you can paste a page's
+  HTML into a Custom Code / HTML element and the assistant comes with it.
+
+------------------------------------------------------------
+## Edit the assistant
+------------------------------------------------------------
+
+Everything lives inside the EL FUEGO AI block at the bottom of each page (open
+the file in any text editor and scroll down):
+
+- Connect GoHighLevel — find  integrations:{ ghl:{ webhookUrl:"" }}  and paste
+  your GHL Inbound Webhook URL between the quotes (GHL -> Automation -> Workflows
+  -> Add Trigger "Inbound Webhook" -> copy URL). Until then, leads are saved in
+  the browser and the assistant offers a pre-filled Messenger hand-off.
+- Prices / FAQs / copy — in the same block, look for  ELFUEGO_KB  (programs,
+  faqs, services). Change a value and that page updates.
+- Real AI later — find  integrations:{ openai:{ enabled:false, endpoint:"" }};
+  set enabled:true and point endpoint at your own backend route (which holds the
+  OpenAI key — never put a raw key in front-end code).
+
+> Trade-off of the all-in-one build: each page carries its own copy of the
+> assistant, so a price change means editing each page. In exchange, every page
+> is bulletproof and portable.
+
+------------------------------------------------------------
+## How to edit later
+------------------------------------------------------------
+
+Bring any change back to Claude (same conversation keeps your brand context) and
+you'll get updated files.
